@@ -1,22 +1,24 @@
 <?php
-/**
- * Configuration
- *
- * Class to send global configuration variables
- *
- */
-class Config {  
-	public static function get($path = null){
-		if ($path) {
-			$config = $GLOBALS['config'];
-			$path = explode('/', $path);
-			foreach ($path as $bit) {
-				if (isset($config[$bit])) {
-					$config = $config[$bit];
+
+	/**
+	 * Configuration
+	 *
+	 * Class to send global configuration variables
+	 *
+	 */
+	class Config {  
+		public static function get($path = null){
+			if ($path) {
+				$config = $GLOBALS['config'];
+				$path = explode('/', $path);
+				foreach ($path as $bit) {
+					if (isset($config[$bit])) {
+						$config = $config[$bit];
+					}
 				}
+				return $config;
 			}
-			return $config;
+		return false;
 		}
-	return false;
-	}
+
 }
